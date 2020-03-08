@@ -1,0 +1,240 @@
+body {
+    margin: 0;
+    font-family: "Lato", Arial, sans-serif;
+}
+
+.main {
+    width: 100%;
+}
+
+.get-quote {
+    width: 100%;
+    min-height: 648px;
+    height: 1px; 
+    background-color: #f06c64;
+    border-bottom: 6px solid #ea676b;
+}
+
+.get-quote__content { 
+    width: 940px;        
+    height: 100%;
+    margin: 0 auto;
+}
+
+.get-quote h1 {
+    margin: 0;
+    padding-top: 60px;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: #f0d8d9;
+}
+
+p {
+    margin: 0;
+}
+
+.get-quote__content > p:nth-child(2) {
+    padding-top: 18px;
+    font-size: 18px;
+    line-height: 30px;
+    color: #f0d8d9;
+    font-weight: 400;
+    text-align: justify;
+    word-spacing: 0.045em;
+    letter-spacing: -0.01em;
+}
+
+.get-quote__content > p:nth-child(3) {
+    font-size: 18px;
+    line-height: 30px;
+    color: #f0d8d9;
+    font-weight: 400;
+    text-align: justify;
+    letter-spacing: -0.013rem; 
+}
+
+.get-quote__contacts {
+    margin-top: 42.5px;
+    display: flex;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input {
+    height: 38px;
+    width: 605px;
+    margin-bottom: 16px;
+    padding: 0 0 0 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d6564f;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 12px;
+    color: #f48c8f;
+    font-weight: 400;
+    outline: none;
+}
+
+.form__input:hover {
+    background-color: #c44e48;
+} 
+
+.form__input:focus {
+    background-color: #f0d8d9;
+    transition: 0.5s;
+}
+
+.form__input::-webkit-input-placeholder {
+    color: #f48c8f;
+}
+
+.form__input::-moz-placeholder {
+    color: #f48c8f;
+}
+
+.form__textarea {
+    height: 192px;
+    padding-top: 10px;
+    resize: none;
+}
+
+.form__submit {
+    width: 150px;
+    padding-left: 0;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 18px;
+}
+
+.form__submit:hover {
+    background-color: #b34843;
+}
+
+.form__submit:focus {
+    background-color: #b34843;
+    color: #ffffff;
+}
+
+.get-quote__info {
+    margin-left: 20px;
+}
+
+.get-quote__info h3 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 18px;
+    color: #f0d8d9;
+    font-weight: 900;
+}
+
+.get-quote__info p {
+    margin-top: 10px;
+    font-size: 11px;
+    line-height: 22px;
+    color: #f0d8d9;
+    font-weight: 400;
+    text-align: justify;
+    letter-spacing: 0.03em;
+    word-spacing: 0.07em;
+}
+
+.icon {
+    display: block;
+    font-size: 12px;
+    line-height: 21px;
+    color: #f0d8d9;
+    font-family: "Lato";
+    font-weight: 400;
+    text-decoration: none;
+    background-size: 15px 15px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 24px;
+}
+
+.icon:hover {
+    color: #b34843;
+}
+
+.icon__location {
+    background-image: url("assets/img/ico-location-pin.svg");
+    margin-top: 21px;
+}
+
+.icon__tel {
+    background-image: url("assets/img/ico-phone-contacts.svg");
+}
+
+.icon__mail {
+    background-image: url("assets/img/ico-mail.svg");
+    background-position: left 6px;
+    background-size: 17px 17px;
+}
+
+footer {
+    width: 100%;
+    min-height: 76px;
+    height: 1px; 
+    background-color: #2d303a;
+}
+
+.footer__content {
+    width: 940px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__copyright {
+    margin-top: 30px;
+    margin-left: 2px;
+    font-size: 12px;
+    letter-spacing: -0.009em;
+    color: #666d89;
+}
+
+.footer__content .social {
+    margin-top: 22px;
+    display: flex;
+}
+
+.social a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #666d89;
+    background-size: 15px 15px;
+    background-position: center center;
+    margin-right: 8px;
+}
+
+.social a:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.social__facebook {
+    background: url("assets/img/ico-facebook.svg") no-repeat;
+}
+
+.social__google {
+    background: url("assets/img/ico-google-plus.svg") no-repeat;
+}
+
+.social__twitter {
+    background: url("assets/img/ico-twitter.svg") no-repeat;
+}
+
+.social__linkedin {
+    background: url("assets/img/ico-linkedin.svg") no-repeat;
+}
+
+.social a:last-child {
+    margin-right: 0;
+}

@@ -34,7 +34,7 @@ p {
     margin: 0;
 }
 
-.portfolio__content p {
+.portfolio p { 
     padding-top: 18px;
     font-size: 18px;
     line-height: 30px;
@@ -183,5 +183,8 @@ p {
 
 .social__linkedin {
     background: url("assets/img/ico-linkedin.svg") no-repeat;
+}
+
+.social a:last-child {
     margin-right: 0;
 }
