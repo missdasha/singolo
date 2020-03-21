@@ -16,26 +16,35 @@
                     </a>    
                 </div>
                 <nav>
-                    <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">SERVICES</a></li>
-                        <li><a href="#">PORTFOLIO</a></li>
-                        <li><a href="#">ABOUT</a></li>
-                        <li><a href="#">CONTACT</a></li>
+                    <ul id="menu">
+                        <li><a class="active" href="#home">HOME</a></li>
+                        <li><a href="#services">SERVICES</a></li>
+                        <li><a href="#portfolio">PORTFOLIO</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
         <main class="main">
-            <div class="slider">
+            <div class="slider" id="home">
                 <div class="wrapper slider__content">
-                    <img class="prev" src="assets/img/prev.png" width="16" height="27" alt="previous">
-                    <img class ="iphone-vertical" src="assets/img/iPhone_vertical.png"  alt="iphone">
-                    <img class ="iphone-horizontal" src="assets/img/iPhone_horizontal.png"  alt="iphone">
-                    <img class ="next" src="assets/img/next.png" width="16" height="27" alt="next">
+                    <img class="arrow prev" src="assets/img/prev.png" width="16" height="27" alt="previous">
+                    <img class ="arrow next" src="assets/img/next.png" width="16" height="27" alt="next">
+                    <div class="slide active">
+                        <img class ="iphone-vertical" src="assets/img/iPhone_vertical.png"  alt="iphone">
+                        <div id="vertical-black-screen" class="hidden"></div>
+                        <div id="vertical-switch"></div>
+                        <img class ="iphone-horizontal" src="assets/img/iPhone_horizontal.png"  alt="iphone">
+                        <div id="horizontal-black-screen" class="hidden"></div>
+                        <div id="horizontal-switch"></div>
+                    </div>
+                    <div class="slide">
+                        <img class="phones" src="assets/img/slide_2.png">
+                    </div>
                 </div>
             </div>
-            <div class="services">
+            <div class="services" id="services">
                 <div class="wrapper services__content">
                     <h1>Our Services</h1>
                     <p class="text">
@@ -96,17 +105,17 @@
                     </div>
                 </div>
             </div>
-            <div class="portfolio">
+            <div class="portfolio" id="portfolio">
                 <div class="wrapper portfolio__content">
                     <h1>Portfolio</h1>
                     <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-                    <div class="portfolio__tags">
-                        <span class="tag">All</span>
+                    <div id="tags" class="portfolio__tags">
+                        <span class="tag selected">All</span>
                         <span class="tag">Web Design</span>
                         <span class="tag">Graphic Design</span>
                         <span class="tag">Artwork</span>
                     </div>
-                    <div class="portfolio__representation">
+                    <div id="images" class="portfolio__representation">
                         <img src="assets/img/1.jpg" alt="portfolio" width="220" height="187">
                         <img src="assets/img/2.jpg" alt="portfolio" width="220" height="187">
                         <img src="assets/img/3.jpg" alt="portfolio" width="220" height="187">
@@ -122,7 +131,7 @@
                     </div>
                 </div>
             </div>
-            <div class="about-us">
+            <div class="about-us" id="about">
                 <div class="wrapper about-us__content">
                     <h1>About Us</h1>
                     <p class="text">
@@ -169,7 +178,7 @@
                     </div>
                 </div>
             </div>
-            <div class="get-quote">
+            <div class="get-quote" id="contact">
                 <div class="wrapper get-quote__content">
                     <h1>Get a Quote</h1>
                     <p class="text">
@@ -180,13 +189,21 @@
                         nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
                     </p>
                     <div class="get-quote__contacts">
-                        <form  class="form" action="" method="POST">
-                            <input class="form__input" type="text" placeholder="Name (Required)" required pattern="[A-ZA-Яa-zа-яёЁ]+">
-                            <input class="form__input" type="email" placeholder="Email (Required)" required>
-                            <input class="form__input" type="text" placeholder="Subject">
-                            <textarea class="form__input form__textarea" placeholder="Describe your project in detail..."></textarea>
-                            <input class="form__input form__submit" type="submit" value="Submit">
+                        <form id="form" class="form" action="" method="POST">
+                            <input class="form__input" type="text" placeholder="Name (Required)" required pattern="[A-ZA-Яa-zа-яёЁ]+" autocomplete="on">
+                            <input class="form__input" type="email" placeholder="Email (Required)" required autocomplete="on">
+                            <input class="form__input" id="subject" type="text" placeholder="Subject">
+                            <textarea class="form__input form__textarea" id="describe" maxlength="20" placeholder="Describe your project in detail..."></textarea>
+                            <input class="form__input form__submit" id="button" type="submit" value="Submit">
                         </form>
+                        <div class="hidden" id="message-block">
+                            <div id="message">
+                                <p>Письмо отправлено</p>
+                                <p>Тема: <span id="theme"></span></p>
+                                <p>Описание: <span id="description"></span></p>
+                                <input id="close-button" type="submit" value="OK">
+                            </div>
+                        </div>
                         <div class="get-quote__info">
                             <h3>Contact Information</h3>
                             <p>Quisque hendrerit purus dapibus, ornare nibh vitae, viver&shy;ra nibh. Fusce vitae aliquam tellus. Proin sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis.</p>
@@ -209,5 +226,6 @@
                 </div>
             </div>
         </footer>
+        <script src="script.js"></script>
     </body>
 </html>

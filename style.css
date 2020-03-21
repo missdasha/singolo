@@ -1,3 +1,9 @@
+html {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: "Lato", Arial, sans-serif;
@@ -5,10 +11,13 @@ body {
 
 .header {
     width: 100%;
-    min-height: 88.5px;
+    min-height: 89px;
     height: 1px; 
     background-color: #2d303a;
     border-bottom: 6px solid #323746;
+    position: fixed;
+    top: 0;
+    z-index: 2;
 }
 
 .wrapper {
@@ -71,8 +80,14 @@ li:not(:last-child)::after {
     left: 14px;
 }
 
-ul li a:hover {
+.header__content a.active {
     color: #f06c64;
+    cursor: default;
+}
+
+ul li a:not(.active):hover {
+    color: #f06c64;
+    cursor: pointer;
 }
 
 .main {
@@ -85,23 +100,100 @@ ul li a:hover {
     margin: 0 auto;
     background-color: #f06c64;
     border-bottom: 6px solid #ea676b;
+    transition: 0.6s ease-in-out;
+}
+
+.blue {
+    background-color: #648BF0;
+    border-bottom: 6px solid rgb(93, 129, 222);;
+    transition: 0.6s ease-in-out;
 }
 
 .slider__content {
     position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    position: relative;
+    animation: 0.6s ease-in-out;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.slide.active, .slide.following {
+    display: block;
+}
+
+.following {
+    position: absolute;
+    top: 0;
+    width: 100%;    
+}
+
+.to-left {
+    animation-name: left;
+}
+
+.to-right {
+    animation-name: right;
+    animation-direction: reverse;
+}
+
+.from-left {
+    animation-name: left;
+    animation-direction: reverse;
+}
+
+.from-right {
+    animation-name: right;
+}
+
+@keyframes left {
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes right {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0;
+    }
 }
 
 .prev {
     position: absolute;
     top: 281px;
     left: 2px;
+    z-index: 1;
+}
+
+
+.next {
+    position: absolute;
+    top: 281px;
+    right: 0px;
+    z-index: 1;
+}
+
+.prev:hover,
+.next:hover {
+    cursor: pointer;
+    /*opacity: 0.5;*/
 }
 
 .iphone-vertical {
     position: absolute;
     top: 53px;
     left: 72px;
-  }
+}
 
 .iphone-horizontal {
     position: absolute;
@@ -109,16 +201,46 @@ ul li a:hover {
     right: 71px;
 }
 
-.next {
+#vertical-black-screen {
     position: absolute;
-    top: 281px;
-    right: 0px;
+    width: 188px;
+    height: 335px;
+    background-color: black;
+    top: 117px;
+    left: 86px;
 }
 
-.prev:hover,
-.next:hover {
-    cursor: pointer;
-    opacity: 0.5;
+#horizontal-black-screen {
+    position: absolute;
+    width: 333px;
+    height: 188px;
+    background-color: black;
+    top: 188px;
+    right: 162px;
+}
+
+#vertical-switch {
+    position: absolute;
+    width: 215px;
+    height: 459px;
+    top: 52px;
+    left: 72px;
+    border-radius: 27px;
+}
+
+#horizontal-switch {
+    position: absolute;
+    width: 459px;
+    height: 215px;
+    top: 174px;
+    right: 97px;
+    border-radius: 27px;
+}
+
+.phones{
+    position: absolute;
+    top: 53px;
+    left: 23%;
 }
 
 .services {
@@ -127,6 +249,16 @@ ul li a:hover {
     height: 1px;
     background-color: #f2f2f2;
     border-bottom: 6px solid #ffffff;
+}
+
+#home {
+    margin-top: 95px;
+}
+
+#services, #about, #portfolio, #contact {
+    border-top: 95px solid transparent;
+	margin-top: -95px;
+	background-clip: padding-box;
 }
 
 h1 {
@@ -297,10 +429,16 @@ p {
     word-spacing: 0.1em;
 }
 
-.tag:hover {
+.tag:not(.selected):hover {
     color: #dedede;
     border-color: #c5c5c5;
     cursor: pointer;
+}
+
+.selected {
+    color: #dedede;
+    border-color: #c5c5c5;
+    cursor: default;
 }
 
 .portfolio__representation {
@@ -308,11 +446,20 @@ p {
     justify-content: space-between;
     flex-wrap: wrap;
     max-height: 601px;
-    overflow: hidden;
+}
+
+.portfolio__representation img:nth-child(n+13) {
+    display: none;
 }
 
 .portfolio__representation img:nth-child(-n+8) {
     margin-bottom: 20px;
+    width: 220px;
+    height: 187px;
+}
+
+.bordered {
+    outline: 5px solid #f06c64;
 }
 
 .about-us {
@@ -320,7 +467,7 @@ p {
     min-height: 728px;
     height: 1px; 
     background-color: #f2f2f2;
-    border-bottom: 6px solid #ffffff;
+    border-bottom: 5px solid #ffffff; /*6px*/
 }
 
 .about-us__representation {
@@ -476,6 +623,54 @@ p {
 .form__submit:focus {
     background-color: #b34843;
     color: #ffffff;
+}
+
+#message-block {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; 
+    background-color: #0b0b0bad;
+    position: fixed;
+    overflow: auto;
+    z-index: 3;
+}
+
+.hidden {
+    display: none;
+}
+
+#message {
+    background: white;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    margin: 0 auto;
+    height: 150px;
+    width: 240px;
+    padding: 30px 20px 10px;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+#message p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #f06c64;
+    padding-bottom: 10px;
+}
+
+#close-button {
+    color: #ffffff;
+    margin-top: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #d6564f;
+    border: none;
+    cursor: pointer;
+    outline: none;
 }
 
 .get-quote__info {
