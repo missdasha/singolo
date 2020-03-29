@@ -10,6 +10,7 @@
     <body>
         <header class="header">
             <div class="wrapper header__content">
+                <img class="burger" src="assets/img/Burger-menu-icon.png" width="25" height="20"> 
                 <div class="logo">
                     <a href="#">
                         <span>SINGOLO</span><span>*</span>
@@ -25,23 +26,28 @@
                     </ul>
                 </nav>
             </div>
+            <div class="overlay hidden"></div>
         </header>
         <main class="main">
             <div class="slider" id="home">
                 <div class="wrapper slider__content">
-                    <img class="arrow prev" src="assets/img/prev.png" width="16" height="27" alt="previous">
-                    <img class ="arrow next" src="assets/img/next.png" width="16" height="27" alt="next">
-                    <div class="slide active">
-                        <img class ="iphone-vertical" src="assets/img/iPhone_vertical.png"  alt="iphone">
-                        <div id="vertical-black-screen" class="hidden"></div>
-                        <div id="vertical-switch"></div>
-                        <img class ="iphone-horizontal" src="assets/img/iPhone_horizontal.png"  alt="iphone">
-                        <div id="horizontal-black-screen" class="hidden"></div>
-                        <div id="horizontal-switch"></div>
+                    <div class="slider__slides">
+                        <div class="slide active">
+                            <div class="phone-items">
+                                <img class="iphone-vertical" src="assets/img/iPhone_vertical.png" alt="vertical iphone">
+                                <div id="vertical-black-screen" class="hidden"></div>
+                                <div id="vertical-switch"></div>
+                                <img class="iphone-horizontal" src="assets/img/iPhone_horizontal.png" alt="horizontal iphone">
+                                <div id="horizontal-black-screen" class="hidden"></div>
+                                <div id="horizontal-switch"></div>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img class="phones" src="assets/img/slide_2.png">
+                        </div>
                     </div>
-                    <div class="slide">
-                        <img class="phones" src="assets/img/slide_2.png">
-                    </div>
+                        <img src="assets/img/prev.png"  class="arrow left" alt="left arrow" height="27" width="16">
+                        <img src="assets/img/next.png" class="arrow right" alt="right arrow" height="27" width="16">
                 </div>
             </div>
             <div class="services" id="services">
@@ -49,58 +55,57 @@
                     <h1>Our Services</h1>
                     <p class="text">
                         Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. 
-                        Duis mollis, non commodo luctus, nisi erat porttitor</p>
-                    <p class="text">
+                        Duis mollis, non commodo luctus, nisi erat porttitor
                         ligula, eget lacinia odio sem 
                         nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
                     </p>
                     <div class="services__representation">
                         <div class="services__item services__item_pen">
                             <img src="assets/img/pen.png" width="59" height="59">
-                            <h3>Custom Design</h3>
+                            <div class="services__wrapper"><h3>Custom Design</h3>
                             <p>
                                 Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, 
                                 viverra lacus ut, ultrices velit.
-                            </p>
+                            </p></div>
                         </div>
                         <div class="services__item services__item_bulb">
                             <img src="assets/img/bulb.png" width="59" height="59">
-                            <h3>Inovative Ideas</h3>
+                            <div class="services__wrapper"><h3>Inovative Ideas</h3>
                             <p>
                                 Quisque luctus, quam eget molestie  com&shy;modo, lacus purus cursus purus, 
                                 nec rutrum tellus dolor id lorem.
-                            </p>
+                            </p></div>
                         </div>
                         <div class="services__item services__item_heart">
                             <img src="assets/img/heart.png" width="59" height="59">
-                            <h3>Love Is The Answer</h3>
+                            <div class="services__wrapper"><h3>Love Is The Answer</h3>
                             <p>
                                 Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, 
                                 et consequat felis. Quisque condimentum.
-                            </p>
+                            </p></div>
                         </div>
                         <div class="services__item services__item_phone">
                             <img src="assets/img/phone.png" width="59" height="59">
-                            <h3>Responsive Layout</h3>
+                            <div class="services__wrapper"><h3>Responsive Layout</h3>
                             <p>
                                 Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas blandit nunc ligula. 
                                 Prae&shy;sent elit leo.
-                            </p>
+                            </p></div>
                         </div>
                         <div class="services__item services__item_bubble">
                             <img src="assets/img/bubble.png" width="59" height="59">
-                            <h3>24 / 7 Support</h3>
+                            <div class="services__wrapper"><h3>24 / 7 Support</h3>
                             <p>
                                 Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi. Nulla a sem erat. 
                                 Pellen&shy;tesque egestas venenatis lorem .
-                            </p>
+                            </p></div>
                         </div>
                         <div class="services__item services__item_star">
                             <img src="assets/img/star.png" width="59" height="59">
-                            <h3>Feel Like A Star</h3>
+                            <div class="services__wrapper"><h3>Feel Like A Star</h3>
                             <p>
                                 Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.
-                            </p>
+                            </p></div>
                         </div>
                     </div>
                 </div>
@@ -126,8 +131,8 @@
                         <img src="assets/img/8.jpg" alt="portfolio" width="220" height="187">
                         <img src="assets/img/9.jpg" alt="portfolio" width="220" height="187">
                         <img src="assets/img/10.jpg" alt="portfolio" width="220" height="187">
-                        <img src="assets/img/11.jpg" alt="portfolio" width="220" height="187">   
-                        <img src="assets/img/12.jpg" alt="portfolio" width="220" height="187">                
+                        <img src="assets/img/11.jpg" alt="portfolio" width="220" height="187">
+                        <img src="assets/img/12.jpg" alt="portfolio" width="220" height="187">            
                     </div>
                 </div>
             </div>
@@ -136,14 +141,13 @@
                     <h1>About Us</h1>
                     <p class="text">
                         Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. 
-                        Duis mollis, non commodo luctus, nisi erat porttitor</p>
-                    <p class="text">
+                        Duis mollis, non commodo luctus, nisi erat porttitor
                         ligula, eget lacinia odio sem 
                         nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
                     </p>
                     <div class="about-us__representation">
                         <div>
-                            <img src="assets/img/adam-jensen.jpg" alt="photo" width="300" height="300">
+                            <img src="assets/img/adam-jensen.jpg" alt="photo">
                             <h3>Adam Jensen</h3>
                             <p class="about-us__description">Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
                             <div class="social">
@@ -154,7 +158,7 @@
                             </div>
                         </div>
                         <div>
-                            <img src="assets/img/desmond-miles.jpg" alt="photo" width="300" height="300">
+                            <img src="assets/img/desmond-miles.jpg" alt="photo">
                             <h3>Desmond Miles</h3>
                             <p class="about-us__description" >Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
                             <div class="social">
@@ -165,7 +169,7 @@
                             </div>
                         </div>
                         <div>
-                            <img src="assets/img/scolara-visari.jpg" alt="photo"  width="300" height="300">
+                            <img src="assets/img/scolara-visari.jpg" alt="photo">
                             <h3>Scolara Visari</h3>
                             <p class="about-us__description">Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
                             <div class="social">
@@ -183,8 +187,7 @@
                     <h1>Get a Quote</h1>
                     <p class="text">
                         Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. 
-                        Duis mollis, non commodo luctus, nisi erat porttitor</p>
-                    <p class="text">
+                        Duis mollis, non commodo luctus, nisi erat porttitor             
                         ligula, eget lacinia odio sem 
                         nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
                     </p>

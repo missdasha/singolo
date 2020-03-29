@@ -7,6 +7,18 @@ const TAGS = document.getElementById('tags');
 const VERTICAL_SWITCH = document.getElementById('vertical-switch');
 const HORIZONTAL_SWITCH = document.getElementById('horizontal-switch');
 const SLIDER = document.querySelector('.slider');
+const BURGER = document.querySelector(".burger");
+const LOGO = document.querySelector('.logo');
+const NAV = document.querySelector('nav');
+
+BURGER.addEventListener('click', showMenu);
+
+function showMenu() {
+    BURGER.classList.toggle('rotated');
+    NAV.classList.toggle('to-right');
+    LOGO.classList.toggle('to-left');
+    document.querySelector('.overlay').classList.toggle('hidden');
+}
 
 //slider
 let slides = document.querySelectorAll('.slide');
@@ -23,38 +35,43 @@ function hideSlide(direction) {
     slides[currentSlide].addEventListener('animationend', function() {
         this.classList.remove('active', direction);
     });
+    
 }
 
 function showSlide(direction) {
-    slides[currentSlide].classList.add('following', direction);
+    slides[currentSlide].classList.add('next', direction);
     slides[currentSlide].addEventListener('animationend', function() {
-        this.classList.remove('following', direction);
+        this.classList.remove('next', direction);
         this.classList.add('active');
         isEnabled = true;
+        if(!document.getElementById('vertical-black-screen').classList.contains('hidden'))
+            document.getElementById('vertical-black-screen').classList.add('hidden');
+        if(!document.getElementById('horizontal-black-screen').classList.contains('hidden'))
+            document.getElementById('horizontal-black-screen').classList.add('hidden');
     });
     SLIDER.classList.toggle('blue');
 }
 
-function previousSlide(n) {
-    hideSlide('to-right');
-    changeCurrentSlide(n-1);
-    showSlide('from-left');
-}
-
 function nextSlide(n) {
     hideSlide('to-left');
-    changeCurrentSlide(n+1);
+    changeCurrentSlide(n + 1);
     showSlide('from-right');
 }
 
-document.querySelector('.prev').addEventListener('click', function() {
-    if(isEnabled) {
+function previousSlide(n) {
+    hideSlide('to-right');
+    changeCurrentSlide(n - 1);
+    showSlide('from-left');
+}
+
+document.querySelector('.arrow.left').addEventListener('click', function() {
+    if (isEnabled) {
         previousSlide(currentSlide);
     }
 });
 
-document.querySelector('.next').addEventListener('click', function() {
-    if(isEnabled) {
+document.querySelector('.arrow.right').addEventListener('click', function() {
+    if (isEnabled) {
         nextSlide(currentSlide);
     }
 });
@@ -76,32 +93,7 @@ document.addEventListener('scroll', event => {
 MENU.addEventListener('click', event => {
     MENU.querySelectorAll('a').forEach(elem => elem.classList.remove('active'));
     event.target.classList.add('active');
-});
-
-//отображение модального окна
-BUTTON.addEventListener('click', event => {
-    if(document.getElementById('form').checkValidity()) {
-        event.preventDefault();
-
-        const subject = document.getElementById('subject').value.toString();
-        const describe = document.getElementById('describe').value.toString();
-
-        document.getElementById('message-block').classList.remove('hidden');
-
-        document.getElementById('theme').innerText = subject ?  subject : "Без темы";
-        document.getElementById('description').innerText = describe ? describe : "Без описания";
-    }
-});
-
-//закрытие модального окна и очистка формы
-CLOSE_BUTTON.addEventListener('click', event => {
-    event.preventDefault();
-
-    document.getElementById('message-block').classList.add('hidden');
-
-    document.getElementById('theme').innerText = "";
-    document.getElementById('description').innerText = "";
-    document.getElementById('form').reset();
+    setTimeout(showMenu, 600);
 });
 
 //отображение рамки вокруг картинок
@@ -134,3 +126,28 @@ HORIZONTAL_SWITCH.addEventListener('click', event => {
     document.getElementById('horizontal-black-screen').classList.toggle('hidden');
 });
 
+//отображение модального окна
+BUTTON.addEventListener('click', event => {
+    if(document.getElementById('form').checkValidity()) {
+        event.preventDefault();
+
+        const subject = document.getElementById('subject').value.toString();
+        const describe = document.getElementById('describe').value.toString();
+
+        document.getElementById('message-block').classList.remove('hidden');
+
+        document.getElementById('theme').innerText = subject ?  subject : "Без темы";
+        document.getElementById('description').innerText = describe ? describe : "Без описания";
+    }
+});
+
+//закрытие модального окна и очистка формы
+CLOSE_BUTTON.addEventListener('click', event => {
+    event.preventDefault();
+
+    document.getElementById('message-block').classList.add('hidden');
+
+    document.getElementById('theme').innerText = "";
+    document.getElementById('description').innerText = "";
+    document.getElementById('form').reset();
+});
